@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Force HTTPS et www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Rediriger toutes les requêtes vers le domaine .com
+RewriteCond %{HTTP_HOST} ^(www\.)?konjectur\.fr$ [NC]
+RewriteRule ^(.*)$ https://www.konjectur.com/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?konjectur\.net$ [NC]
+RewriteRule ^(.*)$ https://www.konjectur.com/$1 [R=301,L]
