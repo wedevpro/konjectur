@@ -1,5 +1,7 @@
 :root {
-  --primary: #41d0d4;
+  --primary: #1de0ad;
+  --primary-particle: #41d0d4;
+  --secondary-particle: #00eb6f;
   --text: #ffffff;
   --bg: #03040a;
 }

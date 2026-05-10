@@ -16,6 +16,12 @@
     align-items:center;
     gap:10px;
   }
+
+  #player .left img {
+    border: solid 1px var(--primary);
+    width: 35px;
+    height: 35px;
+  }
   
   #cover {
     width:50px;

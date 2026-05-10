@@ -43,6 +43,16 @@ function loadLang(){
   }, 200);
 }
 
+function isMobile(){
+  return window.innerWidth < 768;
+}
+
+function cssVar(name){
+  return getComputedStyle(document.documentElement)
+    .getPropertyValue(name)
+    .trim();
+}
+
 // PARTICLES
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
@@ -60,7 +70,11 @@ function createParticles(count){
       x:Math.random()*canvas.width,
       y:Math.random()*canvas.height,
       vx:(Math.random()-0.5)*1,
-      vy:(Math.random()-0.5)*1
+      vy:(Math.random()-0.5)*1,
+      size: 2,//isMobile() ? 3 : 2,
+      color: i % 2 === 0
+        ? cssVar('--primary-particle')
+        : cssVar('--secondary-particle')
     });
   }
 }
@@ -93,18 +107,32 @@ function animate(){
     if(p.x<0||p.x>canvas.width) p.vx*=-1;
     if(p.y<0||p.y>canvas.height) p.vy*=-1;
     ctx.beginPath();
-    ctx.arc(p.x,p.y,2,0,Math.PI*2);
-    ctx.fillStyle = getComputedStyle(document.documentElement)
-  .getPropertyValue('--primary')
-  .trim();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle = p.color;
     ctx.fill();
   });
   requestAnimationFrame(animate);
 }
 updateParticles();
+
+let resizeTimeout;
 window.addEventListener('resize', () => {
-  updateParticles();
+
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    resizeCanvas();
+    updateParticles();
+  }, 200);
 });
+
+const heroSection = document.querySelector('.hero');
+function resizeCanvas(){
+
+  canvas.width = heroSection.offsetWidth;
+  canvas.height = heroSection.offsetHeight;
+
+}
+resizeCanvas();
 
 // SCROLL ANIMATION
 const observer = new IntersectionObserver(entries=>{
