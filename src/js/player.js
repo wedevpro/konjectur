@@ -5,7 +5,9 @@ const tracks = [
       cover: "/audio/dance_in_fire.png"
     }
   ];
-  
+
+  const FADE_DURATION = 3000; // ms
+
   let current = 0;
   const audio = document.getElementById('audio');
   
@@ -62,6 +64,7 @@ const tracks = [
   </svg>`;
   
   function loadTrack(i){
+      audio.pause();
     audio.src = tracks[i].src;
     document.getElementById('track-title').innerText = tracks[i].title;
     document.getElementById('cover').src = tracks[i].cover;
@@ -72,6 +75,7 @@ const tracks = [
   
     if(audio.paused){
       audio.play();
+      fadeIn(audio);
       btn.innerHTML = pauseIcon;
     } else {
       audio.pause();
@@ -88,12 +92,14 @@ const tracks = [
   
     loadTrack(current);
     audio.play();
+    fadeIn(audio);
   }
   
   function prevTrack(){
     current = (current-1+tracks.length)%tracks.length;
     loadTrack(current);
     audio.play();
+    fadeIn(audio);
   }
   
   function setVolume(v){
@@ -165,7 +171,7 @@ const tracks = [
     // synchro avec le slider
     document.querySelector('input[type=\"range\"]').value = audio.volume;
   }
-  
+  let isFadingOut = false;
   audio.addEventListener('timeupdate', ()=>{
     const percent = audio.duration
     ? audio.currentTime / audio.duration
@@ -173,6 +179,17 @@ const tracks = [
     document.getElementById('progress').style.width = progress + '%';
     document.getElementById('seek-handle').style.left = (percent * 100).toFixed(2) + '%';
     document.getElementById('current-time').innerText = formatTime(audio.currentTime);
+
+      const remaining = audio.duration - audio.currentTime;
+
+      if(
+        remaining <= (FADE_DURATION / 1000)
+        && !isFadingOut
+      ){
+        isFadingOut = true;
+
+        fadeOut(audio);
+      }
   });
   
   loadTrack(current);
@@ -304,6 +321,7 @@ function toggleShuffle(){
       // repeat one
       audio.currentTime = 0;
       audio.play();
+      fadeIn(audio);
       return;
     }
   
@@ -320,3 +338,55 @@ function toggleShuffle(){
     // ou continuer (comme actuellement) :
     // nextTrack();
   });
+
+  function fadeIn(audio){
+
+  audio.volume = 0;
+
+  let volume = 0;
+
+  const step = 0.05;
+  const intervalTime = FADE_DURATION * step;
+
+  const fade = setInterval(() => {
+
+    volume += step;
+
+    if(volume >= 1){
+      volume = 1;
+      clearInterval(fade);
+    }
+
+    audio.volume = volume;
+
+  }, intervalTime);
+}
+
+function fadeOut(audio){
+
+  let volume = audio.volume;
+
+  const step = 0.05;
+  const intervalTime = FADE_DURATION * step;
+
+  const fade = setInterval(() => {
+
+    volume -= step;
+
+    if(volume <= 0){
+
+      volume = 0;
+
+      clearInterval(fade);
+
+      isFadingOut = false;
+
+      nextTrack();
+
+      return;
+    }
+
+    audio.volume = volume;
+
+  }, intervalTime);
+}

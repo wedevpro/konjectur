@@ -1,8 +1,13 @@
+:root {
+  --primary: #41d0d4;
+  --text: #ffffff;
+  --bg: #03040a;
+}
 
 body {
   margin:0;
-  background:#03040a;
-  color:white;
+  background:var(--bg);
+  color:var(--text);
   font-family:'Orbitron', sans-serif;
   overflow-x:hidden;
   padding-bottom: var(--player-height);
@@ -38,14 +43,14 @@ body {
 .menu-overlay a {
   font-size: clamp(1.2rem, 5vw, 2rem);
   margin:20px;
-  color:white;
+  color:var(--text);
   text-decoration:none;
   position:relative;
 }
 
 .menu-overlay a:hover {
-  color:#41d0d4;
-  text-shadow:0 0 15px #41d0d4;
+  color:var(--primary);
+  text-shadow:0 0 15px var(--primary);
 }
 
 .menu-btn {
@@ -59,7 +64,7 @@ body {
 .menu-btn div {
   width:30px;
   height:3px;
-  background:#41d0d4;
+  background:var(--primary);
   margin:6px;
   transition:0.3s;
 }
@@ -72,13 +77,12 @@ body {
 
 .lang-switch span:hover, .lang-switch span.current {
   cursor:pointer;
-  color:#41d0d4;
-  text-shadow:0 0 15px #41d0d4;
+  color:var(--primary);
+  text-shadow:0 0 15px var(--primary);
 }
 
 .fade-lang {
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .fade-lang.visible {
@@ -86,7 +90,7 @@ body {
 }
 
 canvas#bg {
-  position:fixed;
+  position:absolute;
   top:0; left:0;
   z-index:-1;
 }
@@ -103,7 +107,7 @@ canvas#bg {
   width:clamp(220px, 80vw, 500px);
   max-width:95vw;
   height:auto;
-  filter: drop-shadow(0 0 20px #41d0d4);
+  filter: drop-shadow(0 0 20px var(--primary));
   animation: pulse 2.5s infinite alternate;
 }
 
@@ -116,8 +120,8 @@ canvas#bg {
 }
 
 @keyframes pulse {
-  from { filter: drop-shadow(0 0 10px #41d0d4); }
-  to { filter: drop-shadow(0 0 40px #41d0d4); }
+  from { filter: drop-shadow(0 0 10px var(--primary)); }
+  to { filter: drop-shadow(0 0 40px var(--primary)); }
 }
 
 .section { padding:120px 20px; }
@@ -137,9 +141,9 @@ canvas#bg {
   display:inline-flex;
   align-items:center;
   gap:10px;
-  border:1px solid #41d0d4;
+  border:1px solid var(--primary);
   border-radius: 10px;
-  color:#41d0d4;
+  color:var(--primary);
   background:none;
   padding:12px 22px;
   text-transform:uppercase;
@@ -170,9 +174,9 @@ canvas#bg {
 }
 
 .btn-glow:hover, .flyer-btn.active {
-  background:#41d0d4;
+  background:var(--primary);
   color:black;
-  box-shadow:0 0 20px #41d0d4, 0 0 40px #41d0d4;
+  box-shadow:0 0 20px var(--primary), 0 0 40px var(--primary);
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -222,7 +226,7 @@ canvas#bg {
 }
 
 .show {
-  border: 1px solid #41d0d4;
+  border: 1px solid var(--primary);
   padding: 15px;
   margin-bottom: 15px;
   position: relative;
@@ -248,7 +252,7 @@ canvas#bg {
 
 .show-date {
   font-size: 0.9rem;
-  color: #41d0d4;
+  color: var(--primary);
 }
 
 .show-place {
@@ -270,7 +274,7 @@ canvas#bg {
 .show-img img {
   width: 100%;
   display: block;
-  border: 1px solid #41d0d4;
+  border: 1px solid var(--primary);
 }
 
 /* bouton icône */
@@ -319,11 +323,11 @@ canvas#bg {
 
 .legal-content h2 {
   margin-top: 25px;
-  color: #41d0d4;
+  color: var(--primary);
 }
 
 .accordion-item {
-  border: 1px solid #41d0d4;
+  border: 1px solid var(--primary);
   background: transparent;
   padding: 0 20px;
 }
@@ -332,7 +336,7 @@ canvas#bg {
   width: 100%;
   background: none;
   border: none;
-  color: #41d0d4;
+  color: var(--primary);
   text-align: left;
   padding: 15px 0;
   font-size: 1rem;
@@ -357,7 +361,7 @@ canvas#bg {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-  color: #ccc;
+  color: var(--text);
 }
 
 .accordion-item.active .accordion-content {
@@ -379,22 +383,22 @@ canvas#bg {
 
 #contact-form input,
 #contact-form textarea {
-  background: #03040a;
-  border: 1px solid #41d0d4;
-  color: #fff;
+  background: var(--bg);
+  border: 1px solid var(--primary);
+  color: var(--text);
   padding: 10px;
 }
 
 #contact-form input:focus,
 #contact-form textarea:focus {
   outline: none;
-  box-shadow: 0 0 10px #41d0d4;
+  box-shadow: 0 0 10px var(--primary);
 }
 
 #form-status {
   text-align: center;
   margin-top: 10px;
-  color: #41d0d4;
+  color: var(--primary);
 }
 
 .social-links {
