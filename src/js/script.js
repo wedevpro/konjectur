@@ -183,3 +183,23 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     document.getElementById("formResponse").innerHTML = currentLang === 'fr' ? '<div class="alert alert-danger">Une erreur s\'est produite. Veuillez réessayer.</div>' : '<div class="alert alert-danger">An error occurred. Please try again.</div>';
   });
 });
+
+document.querySelectorAll('.member-img').forEach(el => {
+
+  el.addEventListener('touchstart', () => {
+    el.classList.add('fun');
+  });
+
+  el.addEventListener('touchend', () => {
+    el.classList.remove('fun');
+  });
+
+  el.addEventListener('touchcancel', () => {
+    el.classList.remove('fun');
+  });
+
+  el.addEventListener('contextmenu', e => {
+    e.preventDefault();
+  });
+
+});
