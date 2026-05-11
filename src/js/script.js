@@ -12,6 +12,7 @@ function detectLang() {
 }
 
 let currentLang = detectLang();
+let i18nData = new Array();
 
 function setLang(lang) {
   localStorage.setItem('lang', lang);
@@ -27,20 +28,23 @@ function loadLang() {
   document.querySelector('.lang-switch .' + currentLang).classList.add('current');
 
   const elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(el => el.classList.add('fade-lang'));
-  elements.forEach(el => el.classList.remove('visible'));
 
-  setTimeout(() => {
+  if (!i18nData[currentLang]) {
     fetch('/lang/' + currentLang + '.json')
       .then(r => r.json())
       .then(data => {
+        i18nData[currentLang] = data;
         elements.forEach(el => {
-          el.innerText = data[el.dataset.i18n];
-          el.classList.remove('fade-lang');
-          el.classList.add('visible');
+          el.innerText = i18nData[currentLang][el.dataset.i18n];
         });
       });
-  }, 200);
+  }
+  else {
+    elements.forEach(el => {
+      el.innerText = i18nData[currentLang][el.dataset.i18n];
+    });
+
+  }
 }
 
 function isMobile() {

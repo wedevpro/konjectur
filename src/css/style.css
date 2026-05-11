@@ -99,14 +99,6 @@ body {
   text-shadow: 0 0 15px var(--primary);
 }
 
-.fade-lang {
-  opacity: 0;
-}
-
-.fade-lang.visible {
-  opacity: 1;
-}
-
 canvas#bg {
   position: absolute;
   top: 0;
@@ -150,17 +142,6 @@ canvas#bg {
 
 .section {
   padding: 120px 20px;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: none;
 }
 
 .btn-glow {
