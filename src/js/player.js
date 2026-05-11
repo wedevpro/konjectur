@@ -2,9 +2,31 @@ const tracks = [
     {
       title: "Dance in the Fire",
       src: "/audio/dance_in_fire.wav",
-      cover: "/audio/dance_in_fire.png"
+      cover: "/audio/cover.png"
+    },
+    {
+      title: "Last in Line",
+      src: "/audio/last_in_line.mp3",
+      cover: "/audio/cover.png"
+    },
+    {
+      title: "Rise",
+      src: "/audio/rise.mp3",
+      cover: "/audio/cover.png"
+    },
+    {
+      title: "Riot",
+      src: "/audio/riot.mp3",
+      cover: "/audio/cover.png"
+    },
+    {
+      title: "See you up there",
+      src: "/audio/see_you_up_there.mp3",
+      cover: "/audio/cover.png"
     }
   ];
+
+  const playedTracks = new Array(tracks.length).fill(false);
 
   const FADE_DURATION = 3000; // ms
 
@@ -68,12 +90,15 @@ const tracks = [
     audio.src = tracks[i].src;
     document.getElementById('track-title').innerText = tracks[i].title;
     document.getElementById('cover').src = tracks[i].cover;
+    playedTracks[i] = true;
   }
   
-  function togglePlay(){
+  function togglePlay(mustPlay = null){
+    debugger;
     const btn = document.getElementById('play-btn');
-  
-    if(audio.paused){
+    let shouldPlay = mustPlay === null ? audio.paused : mustPlay;
+
+    if(shouldPlay){
       audio.play();
       fadeIn(audio);
       btn.innerHTML = pauseIcon;
@@ -84,22 +109,26 @@ const tracks = [
   }
   
   function nextTrack(){
+    if(playedTracks.every(p => p)){
+      playedTracks.fill(false);
+    }
+
+    let notPlayed = playedTracks.map((p, index) => { return p ? null : index }).filter(p => p !== null);
+
     if(isShuffle){
-      current = Math.floor(Math.random() * tracks.length);
+      current = notPlayed[Math.floor(Math.random() * notPlayed.length)];
     } else {
       current = (current + 1) % tracks.length;
     }
   
     loadTrack(current);
-    audio.play();
-    fadeIn(audio);
+    togglePlay(true);
   }
   
   function prevTrack(){
     current = (current-1+tracks.length)%tracks.length;
     loadTrack(current);
-    audio.play();
-    fadeIn(audio);
+    togglePlay(true);
   }
   
   function setVolume(v){
@@ -320,23 +349,18 @@ function toggleShuffle(){
     if(repeatMode === 2){
       // repeat one
       audio.currentTime = 0;
-      audio.play();
-      fadeIn(audio);
+      togglePlay(true);
       return;
     }
   
-    if(repeatMode === 1){
-      // repeat all
+    if(playedTracks.some(p => !p) || repeatMode === 1){
+      // repeatMode 1 => all
       nextTrack();
       return;
     }
   
-    // repeat off
-    // si tu veux arrêter :
-    audio.pause();
-  
-    // ou continuer (comme actuellement) :
-    // nextTrack();
+    audio.currentTime = 0;
+    togglePlay(false);
   });
 
   function fadeIn(audio){
@@ -381,7 +405,7 @@ function fadeOut(audio){
 
       isFadingOut = false;
 
-      nextTrack();
+      // nextTrack();
 
       return;
     }

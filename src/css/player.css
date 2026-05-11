@@ -61,11 +61,6 @@
     accent-color: var(--primary);
   }
   
-  .center button:hover {
-    transform:scale(1.2);
-    text-shadow:0 0 10px var(--primary);
-  }
-  
   .center button:active,
   .center button:focus,
   .center button:focus-visible {
@@ -253,29 +248,30 @@
     transition:0.3s;
   }
   
-  .player-btn:hover svg {
+  .player-btn.active,
+  .player-btn.active svg,
+  #mute-btn.active svg {
     transform:scale(1.2);
     filter: drop-shadow(0 0 6px var(--primary));
-  }
-  
-  .player-btn:active svg {
-    transform:scale(0.95);
-  }
-  
-  #mute-btn:hover svg {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 6px var(--primary));
+    text-shadow: 0 0 10px var(--primary);
   }
   
   #mute-btn svg {
     transition: transform 0.2s;
   }
   
-  #mute-btn:active svg {
-    transform: scale(0.9);
-  }
   
   @media (min-width: 769px) {
+     
+  
+  .center button:hover,
+  .player-btn:hover svg,
+  #mute-btn:hover svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px var(--primary));
+    text-shadow:0 0 10px var(--primary);
+  }
+
     .right {
       /* display:flex; */
       visibility: hidden;
@@ -324,11 +320,6 @@
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
-  }
-
-  .player-btn.active {
-    text-shadow: 0 0 10px var(--primary);
-    filter: drop-shadow(0 0 6px var(--primary));
   }
 
   .player-btn svg {
