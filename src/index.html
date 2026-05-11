@@ -2,94 +2,98 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Konjectur | Groupe de rock</title>
-    <meta name="description" content="Konjectur - Groupe de rock, concerts, streaming.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Konjectur | Groupe de rock</title>
+  <meta name="description" content="Konjectur - Groupe de rock, concerts, streaming.">
 
-    <!-- OpenGraph -->
-    <meta property="og:title" content="Konjectur Rock Band">
-    <meta property="og:image" content="logo.png">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Konjectur Rock Band">
+  <meta property="og:image" content="logo.png">
 
-    <!-- icons -->
-    <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Konjectur" />
-    <link rel="manifest" href="/assets/icons/site.webmanifest" />
+  <!-- icons -->
+  <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Konjectur" />
+  <link rel="manifest" href="/assets/icons/site.webmanifest" />
 
-    <meta name="theme-color" content="#03040a">
+  <meta name="theme-color" content="#03040a">
 
-    <!-- styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/player.css">
+  <!-- styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/player.css">
 </head>
 
 <body>
 
-    <!-- LANG SWITCH -->
-    <div class="lang-switch">
-        <span onclick="setLang('fr')" class="fr">FR</span> |
-        <span onclick="setLang('en')" class="en">EN</span>
+  <!-- LANG SWITCH -->
+  <div class="lang-switch">
+    <span onclick="setLang('fr')" class="fr">FR</span> |
+    <span onclick="setLang('en')" class="en">EN</span>
+  </div>
+
+  <!-- MENU BUTTON -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- FULLSCREEN MENU -->
+  <div class="menu-overlay" id="menu">
+    <a href="#" onclick="toggleMenu()" data-i18n="nav_home"></a>
+    <a href="#about" onclick="toggleMenu()" data-i18n="nav_about"></a>
+    <a href="#videos" onclick="toggleMenu()" data-i18n="nav_videos"></a>
+    <a href="#stream" onclick="toggleMenu()" data-i18n="nav_stream"></a>
+    <a href="#shows" onclick="toggleMenu()" data-i18n="nav_shows"></a>
+    <a href="#legal" onclick="toggleMenu()" data-i18n="nav_legal"></a>
+    <a href="#contact" onclick="toggleMenu()" data-i18n="nav_contact"></a>
+  </div>
+
+  <canvas id="bg"></canvas>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <img src="/assets/logo.png" class="logo">
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section fade-in">
+    <div class="container text-center">
+      <h1 data-i18n="about_title"></h1>
+      <div class="lang-fr">
+        <p>
+          Konjectur est un groupe de rock français formé en 2023. Composé de quatre membres passionnés, le groupe puise
+          son inspiration dans les grands classiques du rock tout en y ajoutant une touche moderne et personnelle. Avec
+          des riffs puissants, des mélodies accrocheuses et des paroles introspectives, Konjectur s'efforce de créer une
+          expérience musicale authentique et captivante pour ses auditeurs.
+        </p>
+      </div>
+      <div class="lang-en">
+        <p>
+          Konjectur is a French rock band formed in 2023. Composed of four passionate members, the band draws its
+          inspiration from the great classics of rock while adding a modern and personal touch. With powerful riffs,
+          catchy melodies, and introspective lyrics, Konjectur strives to create an authentic and captivating musical
+          experience for its listeners.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <!-- MENU BUTTON -->
-    <div class="menu-btn" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <!-- FULLSCREEN MENU -->
-    <div class="menu-overlay" id="menu">
-        <a href="#" onclick="toggleMenu()" data-i18n="nav_home"></a>
-        <a href="#about" onclick="toggleMenu()" data-i18n="nav_about"></a>
-        <a href="#videos" onclick="toggleMenu()" data-i18n="nav_videos"></a>
-        <a href="#stream" onclick="toggleMenu()" data-i18n="nav_stream"></a>
-        <a href="#shows" onclick="toggleMenu()" data-i18n="nav_shows"></a>
-        <a href="#legal" onclick="toggleMenu()" data-i18n="nav_legal"></a>
-        <a href="#contact" onclick="toggleMenu()" data-i18n="nav_contact"></a>
-    </div>
-
-    <canvas id="bg"></canvas>
-
-    <!-- HERO -->
-    <section id="hero" class="hero">
-        <img src="/assets/logo.png" class="logo">
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section fade-in">
-        <div class="container text-center">
-            <h1 data-i18n="about_title"></h1>
-              <div class="lang-fr">
-                  <p>
-                      Konjectur est un groupe de rock français formé en 2023. Composé de quatre membres passionnés, le groupe puise son inspiration dans les grands classiques du rock tout en y ajoutant une touche moderne et personnelle. Avec des riffs puissants, des mélodies accrocheuses et des paroles introspectives, Konjectur s'efforce de créer une expérience musicale authentique et captivante pour ses auditeurs.
-                  </p>
-              </div>
-              <div class="lang-en">
-                  <p>
-                      Konjectur is a French rock band formed in 2023. Composed of four passionate members, the band draws its inspiration from the great classics of rock while adding a modern and personal touch. With powerful riffs, catchy melodies, and introspective lyrics, Konjectur strives to create an authentic and captivating musical experience for its listeners.
-                  </p>
-              </div>
-        </div>
-    </section>
-
-    <!-- VIDEOS -->
-    <section id="videos" class="section fade-in">
-        <div class="container text-center">
-            <h1 class="text-center" data-i18n="videos_title"></h1>
-            <div class="video-container">
-                <iframe 
-                  src="https://www.youtube.com/embed/h8WyYm-I-0o"
-                  allowfullscreen>
-                </iframe>
-              </div>
-            <!--div class="row">
+  <!-- VIDEOS -->
+  <section id="videos" class="section fade-in">
+    <div class="container text-center">
+      <h1 class="text-center" data-i18n="videos_title"></h1>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/h8WyYm-I-0o" allowfullscreen>
+        </iframe>
+      </div>
+      <!--div class="row">
 			  <div class="col-md-6">
 				<iframe width="100%" height="315" src="https://www.youtube.com/embed/h8WyYm-I-0o"></iframe>
 			  </div>
@@ -97,295 +101,295 @@
 				<iframe src="https://open.spotify.com/embed/track/TRACK_ID" width="100%" height="315"></iframe>
 			  </div>
 			</div-->
-        </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- STREAM -->
-    <section id="stream" class="section text-center fade-in">
-        <h1 data-i18n="stream_title"></h1>
-        <a href="#" class="btn-glow m-2">
-            <i class="fab fa-spotify"></i> Spotify
-        </a>
+  <!-- STREAM -->
+  <section id="stream" class="section text-center fade-in">
+    <h1 data-i18n="stream_title"></h1>
+    <a href="#" class="btn-glow m-2">
+      <i class="fab fa-spotify"></i> Spotify
+    </a>
 
-        <a href="#" class="btn-glow m-2">
-            <i class="fab fa-apple"></i> Apple Music
-        </a>
+    <a href="#" class="btn-glow m-2">
+      <i class="fab fa-apple"></i> Apple Music
+    </a>
 
-        <a href="#" class="btn-glow m-2">
-            <i class="fas fa-music"></i> Deezer
-        </a>
-    </section>
+    <a href="#" class="btn-glow m-2">
+      <i class="fas fa-music"></i> Deezer
+    </a>
+  </section>
 
-    <!-- SHOWS -->
-    <section id="shows" class="section fade-in">
-        <div class="container">
-          <h1 data-i18n="shows_title">Concerts</h1>
-      
-          <div id="shows-list"></div>
-        </div>
-      </section>
-
-<!-- MENTIONS LEGALES -->
-    <section id="legal" class="section fade-in">
+  <!-- SHOWS -->
+  <section id="shows" class="section fade-in">
     <div class="container">
-        <h1 data-i18n="legal_title">Mentions légales</h1>
+      <h1 data-i18n="shows_title">Concerts</h1>
 
-        <div class="accordion">
+      <div id="shows-list"></div>
+    </div>
+  </section>
+
+  <!-- MENTIONS LEGALES -->
+  <section id="legal" class="section fade-in">
+    <div class="container">
+      <h1 data-i18n="legal_title">Mentions légales</h1>
+
+      <div class="accordion">
 
         <!-- Éditeur -->
         <div class="accordion-item">
-            <button class="accordion-header" data-i18n="legal_publisher">Éditeur</button>
-            <div class="accordion-content">
+          <button class="accordion-header" data-i18n="legal_publisher">Éditeur</button>
+          <div class="accordion-content">
 
-                <div class="lang-fr">
-                    <p>
-                        <strong>WeDevPro - Antoine GARIN</strong><br>
-                        Email: wedevpro@gmail.com
-                    </p>
-                </div>
-              
-                <div class="lang-en">
-                    <p>
-                        <strong>WeDevPro - Antoine GARIN</strong><br>
-                        Email: wedevpro@gmail.com
-                    </p>
-                </div>
-              
-              </div>
+            <div class="lang-fr">
+              <p>
+                <strong>WeDevPro - Antoine GARIN</strong><br>
+                Email: wedevpro@gmail.com
+              </p>
+            </div>
+
+            <div class="lang-en">
+              <p>
+                <strong>WeDevPro - Antoine GARIN</strong><br>
+                Email: wedevpro@gmail.com
+              </p>
+            </div>
+
+          </div>
         </div>
 
         <!-- Hébergement -->
         <div class="accordion-item">
-            <button class="accordion-header" data-i18n="legal_hosting">Hébergement</button>
-            <div class="accordion-content">
+          <button class="accordion-header" data-i18n="legal_hosting">Hébergement</button>
+          <div class="accordion-content">
 
-                <div class="lang-fr">
-                    <p>
-                        <strong>OVH</strong><br>
-                        https://ovh.com/
-                    </p>
-                </div>
-              
-                <div class="lang-en">
-                    <p>
-                        <strong>OVH</strong><br>
-                        https://ovh.com/
-                    </p>
-                </div>
-              
-              </div>
+            <div class="lang-fr">
+              <p>
+                <strong>OVH</strong><br>
+                https://ovh.com/
+              </p>
+            </div>
+
+            <div class="lang-en">
+              <p>
+                <strong>OVH</strong><br>
+                https://ovh.com/
+              </p>
+            </div>
+
+          </div>
         </div>
 
         <!-- Propriété -->
         <div class="accordion-item">
-            <button class="accordion-header" data-i18n="legal_intel_property">Propriété intellectuelle</button>
-            <div class="accordion-content">
+          <button class="accordion-header" data-i18n="legal_intel_property">Propriété intellectuelle</button>
+          <div class="accordion-content">
 
-                <div class="lang-fr">
-                  <p>
-                    Tous les contenus présents sur ce site sont la propriété de Konjectur.
-                  </p>
-                </div>
-              
-                <div class="lang-en">
-                  <p>
-                    All content on this website is owned by Konjectur.
-                  </p>
-                </div>
-              
-              </div>
+            <div class="lang-fr">
+              <p>
+                Tous les contenus présents sur ce site sont la propriété de Konjectur.
+              </p>
+            </div>
+
+            <div class="lang-en">
+              <p>
+                All content on this website is owned by Konjectur.
+              </p>
+            </div>
+
+          </div>
         </div>
 
         <!-- Données -->
         <div class="accordion-item">
-            <button class="accordion-header" data-i18n="legal_personal_data">Données personnelles</button>
-            <div class="accordion-content">
+          <button class="accordion-header" data-i18n="legal_personal_data">Données personnelles</button>
+          <div class="accordion-content">
 
-                <div class="lang-fr">
-                  <p>
-                    Aucue ndonnée personnelle n'est collectée sans votre consentement.
-                  </p>
-                </div>
-              
-                <div class="lang-en">
-                  <p>
-                    No personal data is collected without your consent.
-                  </p>
-                </div>
-              
-              </div>
+            <div class="lang-fr">
+              <p>
+                Aucue ndonnée personnelle n'est collectée sans votre consentement.
+              </p>
+            </div>
+
+            <div class="lang-en">
+              <p>
+                No personal data is collected without your consent.
+              </p>
+            </div>
+
+          </div>
         </div>
 
         <!-- Cookies -->
         <div class="accordion-item">
-            <button class="accordion-header" data-i18n="legal_cookies">Cookies</button>
-            <div class="accordion-content">
+          <button class="accordion-header" data-i18n="legal_cookies">Cookies</button>
+          <div class="accordion-content">
 
-                <div class="lang-fr">
-                  <p>
-                    Ce site n'utilise pas de cookies de suivi.
-                  </p>
-                </div>
-              
-                <div class="lang-en">
-                  <p>
-                    This website does not use tracking cookies.
-                  </p>
-                </div>
-              
-              </div>
+            <div class="lang-fr">
+              <p>
+                Ce site n'utilise pas de cookies de suivi.
+              </p>
+            </div>
+
+            <div class="lang-en">
+              <p>
+                This website does not use tracking cookies.
+              </p>
+            </div>
+
+          </div>
         </div>
 
         <!-- Liens -->
         <div class="accordion-item">
-            <button class="accordion-header" data-i18n="legal_external_links">Liens externes</button>
-            <div class="accordion-content">
+          <button class="accordion-header" data-i18n="legal_external_links">Liens externes</button>
+          <div class="accordion-content">
 
-                <div class="lang-fr">
-                  <p>
-                    Le site contient des liens vers des plateformes externes.
-                  </p>
-                </div>
-              
-                <div class="lang-en">
-                  <p>
-                    This website contains links to external platforms.
-                  </p>
-                </div>
-              
-              </div>
+            <div class="lang-fr">
+              <p>
+                Le site contient des liens vers des plateformes externes.
+              </p>
+            </div>
+
+            <div class="lang-en">
+              <p>
+                This website contains links to external platforms.
+              </p>
+            </div>
+
+          </div>
         </div>
 
-        </div>
+      </div>
     </div>
-    </section>
-    <section id="contact" class="section fade-in">
-        <div class="container">
-          <h1 data-i18n="contact_title">Contact</h1>
-          <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61582231696558" target="_blank" class="btn-glow m-2">
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-            
-            <a href="https://instagram.com/konjectur" target="_blank" class="btn-glow m-2">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            
-            <a href="mailto:konjectur@gmail.com" target="_blank" class="btn-glow m-2">
-                <i class="fab fa-at"></i> Email
-            </a>
-          
-          </div>
-			<form id="contact-form">
-				<div class="mb-3">       
-					<label class="form-label" data-i18n="contact_name">Nom</label>
-					<input type="text" name="name" class="form-control" required />
-				</div>
-				<div class="mb-3">       
-					<label class="form-label" data-i18n="contact_email">Email</label>
-					<input type="email" name="email" class="form-control" required />
-				</div>
-				<div class="mb-3">       
-					<label class="form-label" data-i18n="contact_message">Message</label>
-					<textarea name="message" class="form-control" rows="5" required></textarea>
-				</div>
-				<button type="submit" class="btn-glow" data-i18n="contact_send">Envoyer</button>
-				<div id="formResponse" class="mt-3"></div>
-			</form>
-      
-          <p id="form-status"></p>
-      
-        </div>
-      </section>
+  </section>
+  <section id="contact" class="section fade-in">
+    <div class="container">
+      <h1 data-i18n="contact_title">Contact</h1>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61582231696558" target="_blank" class="btn-glow m-2">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
 
-    <div id="player">
-        <div class="left">
-          <img id="cover" src="/assets/cover.png">
-          <div>
-            <div id="track-title">Dance in the Fire</div>
-          </div>
-        </div>
-      
-        <div class="center">
-            <div class="controls-row">
+        <a href="https://instagram.com/konjectur" target="_blank" class="btn-glow m-2">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
 
-                <button onclick="toggleShuffle()" id="shuffle-btn" class="player-btn">
-                    <svg viewBox="0 0 24 24">
-                        <!-- ligne du haut -->
-                        <path stroke-width="2" stroke="currentColor" d="M4 7 H8 L16 17 H20"/>
-                        
-                        <!-- flèche droite -->
-                        <polyline stroke-width="2" fill="none" stroke="currentColor" points="17,14 20,17 17,20"/>
-                        
-                        <!-- ligne du bas -->
-                        <path stroke-width="2" stroke="currentColor" d="M4 17 H8 L10 14"/>
-                        
-                        <!-- flèche haut droite -->
-                        <polyline stroke-width="2" fill="none" stroke="currentColor" points="17,4 20,7 17,10"/>
-                        
-                        <!-- ligne qui monte -->
-                        <path stroke-width="2" stroke="currentColor" d="M10 10 L16 7 H20"/>
-                      </svg>
-                  </button>
-                <button onclick="prevTrack()" class="player-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                      <polygon points="11,12 20,18 20,6" fill="currentColor"/>
-                      <polygon points="4,12 13,18 13,6" fill="currentColor"/>
-                    </svg>
-                  </button>
-                <button onclick="togglePlay()" id="play-btn" class="player-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                      <polygon points="6,4 20,12 6,20" fill="currentColor"/>
-                    </svg>
-                  </button>
-                  <button onclick="nextTrack()" class="player-btn">
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                      <polygon points="13,12 4,18 4,6" fill="currentColor"/>
-                      <polygon points="20,12 11,18 11,6" fill="currentColor"/>
-                    </svg>
-                  </button>
-                  <button onclick="toggleRepeat()" id="repeat-btn" class="player-btn">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M4 12 C4 7 8 4 12 4 H18" stroke="currentColor" stroke-width="2" fill="none"/>
-                        <polyline points="16,2 20,4 16,6" fill="none" stroke="currentColor" stroke-width="2"/>
-                    
-                        <path d="M20 12 C20 17 16 20 12 20 H6" stroke="currentColor" stroke-width="2" fill="none"/>
-                        <polyline points="8,18 4,20 8,22" fill="none" stroke="currentColor" stroke-width="2"/>
-                      </svg>
-                    
-                      <!-- indicateur repeat one -->
-                      <span class="repeat-one">1</span>
-                  </button>
-              </div>
-      
-              <div class="progress-container" onclick="seek(event)">
-                <div class="progress-bar">
-                  <div class="progress" id="progress"></div>
-                </div>
-                <div class="seek-handle" id="seek-handle"></div>
-              </div>
-              <div class="time">
-                  <span id="current-time">0:00</span>
-                  <span id="duration">0:00</span>
-                </div>
+        <a href="mailto:konjectur@gmail.com" target="_blank" class="btn-glow m-2">
+          <i class="fab fa-at"></i> Email
+        </a>
+
+      </div>
+      <form id="contact-form">
+        <div class="mb-3">
+          <label class="form-label" data-i18n="contact_name">Nom</label>
+          <input type="text" name="name" class="form-control" required />
         </div>
-      
-        <div class="right">
-            <button onclick="toggleMute()" id="mute-btn" class="player-btn">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <polygon points="3,9 7,9 12,5 12,19 7,15 3,15" fill="currentColor"/>
-                  <path d="M16 8 C18 10,18 14,16 16" stroke="currentColor" stroke-width="2" fill="none"/>
-                </svg>
-              </button>
-          <input type="range" min="0" max="1" step="0.01" onchange="setVolume(this.value)">
+        <div class="mb-3">
+          <label class="form-label" data-i18n="contact_email">Email</label>
+          <input type="email" name="email" class="form-control" required />
         </div>
-      
-        <audio id="audio"></audio>
+        <div class="mb-3">
+          <label class="form-label" data-i18n="contact_message">Message</label>
+          <textarea name="message" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-glow" data-i18n="contact_send">Envoyer</button>
+        <div id="formResponse" class="mt-3"></div>
+      </form>
+
+      <p id="form-status"></p>
+
+    </div>
+  </section>
+
+  <div id="player">
+    <div class="left">
+      <img id="cover" src="/assets/cover.png">
+      <div>
+        <div id="track-title">Dance in the Fire</div>
+      </div>
+    </div>
+
+    <div class="center">
+      <div class="controls-row">
+
+        <button onclick="toggleShuffle()" id="shuffle-btn" class="player-btn">
+          <svg viewBox="0 0 24 24">
+            <!-- ligne du haut -->
+            <path stroke-width="2" stroke="currentColor" d="M4 7 H8 L16 17 H20" />
+
+            <!-- flèche droite -->
+            <polyline stroke-width="2" fill="none" stroke="currentColor" points="17,14 20,17 17,20" />
+
+            <!-- ligne du bas -->
+            <path stroke-width="2" stroke="currentColor" d="M4 17 H8 L10 14" />
+
+            <!-- flèche haut droite -->
+            <polyline stroke-width="2" fill="none" stroke="currentColor" points="17,4 20,7 17,10" />
+
+            <!-- ligne qui monte -->
+            <path stroke-width="2" stroke="currentColor" d="M10 10 L16 7 H20" />
+          </svg>
+        </button>
+        <button onclick="prevTrack()" class="player-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <polygon points="11,12 20,18 20,6" fill="currentColor" />
+            <polygon points="4,12 13,18 13,6" fill="currentColor" />
+          </svg>
+        </button>
+        <button onclick="togglePlay()" id="play-btn" class="player-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <polygon points="6,4 20,12 6,20" fill="currentColor" />
+          </svg>
+        </button>
+        <button onclick="nextTrack()" class="player-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <polygon points="13,12 4,18 4,6" fill="currentColor" />
+            <polygon points="20,12 11,18 11,6" fill="currentColor" />
+          </svg>
+        </button>
+        <button onclick="toggleRepeat()" id="repeat-btn" class="player-btn">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 12 C4 7 8 4 12 4 H18" stroke="currentColor" stroke-width="2" fill="none" />
+            <polyline points="16,2 20,4 16,6" fill="none" stroke="currentColor" stroke-width="2" />
+
+            <path d="M20 12 C20 17 16 20 12 20 H6" stroke="currentColor" stroke-width="2" fill="none" />
+            <polyline points="8,18 4,20 8,22" fill="none" stroke="currentColor" stroke-width="2" />
+          </svg>
+
+          <!-- indicateur repeat one -->
+          <span class="repeat-one">1</span>
+        </button>
       </div>
 
-      <script lang="javascript" src="/js/script.js"></script>
-      <script lang="javascript" src="/js/player.js"></script>
-      <script lang="javascript" src="/js/shows.js"></script>
+      <div class="progress-container" onclick="seek(event)">
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="seek-handle" id="seek-handle"></div>
+      </div>
+      <div class="time">
+        <span id="current-time">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="right">
+      <button onclick="toggleMute()" id="mute-btn" class="player-btn">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <polygon points="3,9 7,9 12,5 12,19 7,15 3,15" fill="currentColor" />
+          <path d="M16 8 C18 10,18 14,16 16" stroke="currentColor" stroke-width="2" fill="none" />
+        </svg>
+      </button>
+      <input type="range" min="0" max="1" step="0.01" onchange="setVolume(this.value)">
+    </div>
+
+    <audio id="audio"></audio>
+  </div>
+
+  <script lang="javascript" src="/js/script.js"></script>
+  <script lang="javascript" src="/js/player.js"></script>
+  <script lang="javascript" src="/js/shows.js"></script>
 
 </body>
 

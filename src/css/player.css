@@ -1,354 +1,354 @@
 #player {
-    position:fixed;
-    bottom:0;
-    width:100%;
-    background:#0a0a0a;
-    justify-content:space-between;
-    padding:10px 20px;
-    border-top:1px solid var(--primary);
-    z-index:9999;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-  
-  #player .left {
-    display:flex;
-    align-items:center;
-    gap:10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0a0a0a;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-top: 1px solid var(--primary);
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
 
-  #player .left img {
-    border: solid 1px var(--primary);
-    width: 35px;
-    height: 35px;
-  }
-  
-  #cover {
-    width:50px;
-    height:50px;
-    object-fit:cover;
-  }
-  
-  #track-title {
-    color:var(--text);
-    font-size:0.9rem;
-  }
-  
-  #artist {
-    color:var(--primary);
-    font-size:0.7rem;
-  }
-  
-  .center {
-    justify-self: center;
-    text-align:center;
-    padding: 0 20px;
-  }
-  
-  .center button {
-    cursor:pointer;
-    transition:0.3s;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-size:1.5rem;
-    margin:0 15px;
-    background: transparent !important;
-    color: var(--primary) !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    -webkit-tap-highlight-color: transparent;
-    accent-color: var(--primary);
-  }
-  
-  .center button:active,
-  .center button:focus,
-  .center button:focus-visible {
-    background: transparent !important;
-    color: var(--primary) !important;
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  
-  .progress-container {
-    background:#222;
-    height:5px;
-    width:100%;
-    margin-top:10px;
-    cursor:pointer;
-    position: relative;
-  }
-  
-  /* zone qui clip les vagues */
-  .progress-bar {
-    overflow: hidden;
-    height: 6px;
-    background: #222;
-  }
-  
-  .progress {
-    background:var(--primary);
-    height:100%;
-    width:0%;
-    position: relative;
-  }
-  
-  .progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-  
-    background: repeating-linear-gradient(
-      90deg,
-      rgba(0,255,255,0.8) 0px,
-      rgba(0,255,255,0.8) 2px,
+#player .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#player .left img {
+  border: solid 1px var(--primary);
+  width: 35px;
+  height: 35px;
+}
+
+#cover {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+#track-title {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+#artist {
+  color: var(--primary);
+  font-size: 0.7rem;
+}
+
+.center {
+  justify-self: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.center button {
+  cursor: pointer;
+  transition: 0.3s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 1.5rem;
+  margin: 0 15px;
+  background: transparent !important;
+  color: var(--primary) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+  accent-color: var(--primary);
+}
+
+.center button:active,
+.center button:focus,
+.center button:focus-visible {
+  background: transparent !important;
+  color: var(--primary) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.progress-container {
+  background: #222;
+  height: 5px;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* zone qui clip les vagues */
+.progress-bar {
+  overflow: hidden;
+  height: 6px;
+  background: #222;
+}
+
+.progress {
+  background: var(--primary);
+  height: 100%;
+  width: 0%;
+  position: relative;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+
+  background: repeating-linear-gradient(90deg,
+      rgba(0, 255, 255, 0.8) 0px,
+      rgba(0, 255, 255, 0.8) 2px,
       transparent 2px,
-      transparent 6px
-    );
-  
-    opacity: 0;
+      transparent 6px);
+
+  opacity: 0;
+}
+
+.progress.playing::after {
+  animation: waveMove 1s linear infinite;
+  opacity: 1;
+}
+
+@keyframes waveMove {
+  from {
+    transform: translateX(0);
   }
 
-  .progress.playing::after {
-    animation: waveMove 1s linear infinite;
-    opacity: 1;
+  to {
+    transform: translateX(-20px);
   }
-  
-  @keyframes waveMove {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-20px);
-    }
+}
+
+.right input {
+  width: 100px;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Contrôles centrés */
+.controls-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+
+  :root {
+    --player-height: 100px;
   }
-  
+
+  #player {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  #player .left {
+    justify-content: center;
+  }
+
+  .center {
+    width: 100%;
+  }
+
+  /* Progress bar en haut du player */
+  .progress-container {
+    order: -1;
+    height: 6px;
+  }
+
+  /* Volume plus discret */
+  .right {
+    /* display:flex; */
+    display: none;
+    justify-content: center;
+  }
+
   .right input {
-    width:100px;
-  }
-  
-  button:focus {
-    outline: none;
-  }
-  
-  /* Contrôles centrés */
-  .controls-row {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-  
-  @media (max-width: 768px) {
-  
-    :root {
-      --player-height: 100px;
-    }
-  
-    #player {
-      display:flex;
-      flex-direction:column;
-      align-items:stretch;
-      padding:10px;
-      gap:10px;
-    }
-  
-    #player .left {
-      justify-content:center;
-    }
-  
-    .center {
-      width:100%;
-    }
-  
-    /* Progress bar en haut du player */
-    .progress-container {
-      order:-1;
-      height:6px;
-    }
-  
-    /* Volume plus discret */
-    .right {
-      /* display:flex; */
-      display: none;
-      justify-content: center;
-    }
-  
-    .right input {
-      width:80%;
-    }
-  
-    /* Cover un peu plus petite */
-    #cover {
-      width:40px;
-      height:40px;
-    }
-  
-    #track-title {
-      font-size:0.8rem;
-    }
-  
+    width: 80%;
   }
 
-  input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
+  /* Cover un peu plus petite */
+  #cover {
+    width: 40px;
+    height: 40px;
   }
-  
-  input[type="range"]::-webkit-slider-runnable-track {
-    height: 4px;
-    background: linear-gradient(var(--primary), var(--primary)) no-repeat, #222;
-    background-size: var(--progress, 50%) 100%;
+
+  #track-title {
+    font-size: 0.8rem;
   }
-  
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
-    background: var(--primary);
-    border-radius: 50%;
-    margin-top: -4px;
-    box-shadow: 0 0 8px var(--primary);
-  }
-  
-  input[type="range"]::-moz-range-track {
-    height: 4px;
-    background: #222;
-  }
-  
-  input[type="range"]::-moz-range-progress {
-    background: var(--primary);
-    height: 4px;
-  }
-  
-  input[type="range"]::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    background: var(--primary);
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--primary);
-  }
-  
-  .player-btn {
-    background:none;
-    border:none;
-    color:var(--primary);
-    cursor:pointer;
-    padding:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:0.3s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  
-  .player-btn svg {
-    width:28px;
-    height:28px;
-    transition:0.3s;
-  }
-  
-  .player-btn.active,
-  .player-btn.active svg,
-  #mute-btn.active svg {
-    transform:scale(1.2);
-    filter: drop-shadow(0 0 6px var(--primary));
-    text-shadow: 0 0 10px var(--primary);
-  }
-  
-  #mute-btn svg {
-    transition: transform 0.2s;
-  }
-  
-  
-  @media (min-width: 769px) {
-     
-  
+
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(var(--primary), var(--primary)) no-repeat, #222;
+  background-size: var(--progress, 50%) 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  margin-top: -4px;
+  box-shadow: 0 0 8px var(--primary);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: #222;
+}
+
+input[type="range"]::-moz-range-progress {
+  background: var(--primary);
+  height: 4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.player-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.player-btn svg {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s;
+}
+
+.player-btn.active,
+.player-btn.active svg,
+#mute-btn.active svg {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px var(--primary));
+  text-shadow: 0 0 10px var(--primary);
+}
+
+#mute-btn svg {
+  transition: transform 0.2s;
+}
+
+
+@media (min-width: 769px) {
+
+
   .center button:hover,
   .player-btn:hover svg,
   #mute-btn:hover svg {
     transform: scale(1.2);
     filter: drop-shadow(0 0 6px var(--primary));
-    text-shadow:0 0 10px var(--primary);
+    text-shadow: 0 0 10px var(--primary);
   }
 
-    .right {
-      /* display:flex; */
-      justify-self: end;
-      visibility: hidden;
-      align-items: center;
-      gap: 10px;
-    }
+  .right {
+    /* display:flex; */
+    justify-self: end;
+    visibility: hidden;
+    align-items: center;
+    gap: 10px;
   }
-  
-  .right input[type="range"] {
-    flex: 1;
-  }
-  
-  audio::-webkit-media-controls-enclosure {
-    overflow: hidden;
-  }
-  
-  .seek-handle {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 12px;
-    height: 12px;
-    background: var(--primary);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--primary);
-    pointer-events: auto; /* important */
-    cursor: pointer;
-    transition: transform 0.15s;
-    z-index: 10;
-    border: 2px solid var(--bg);
-  }
-  
-  .seek-handle::before {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .time {
-    font-size: 0.75rem;
-    color: var(--primary);
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-between;
-  }
+}
 
-  .player-btn svg {
-    width: 24px;
-    height: 24px;
-  }
-  
-  /* repeat one badge */
-  .repeat {
-    position: relative;
-  }
-  
-  .repeat-one {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 10px;
-    color: var(--primary);
-    display: none;
-    font-weight: bold;
-  }
+.right input[type="range"] {
+  flex: 1;
+}
+
+audio::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+.seek-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary);
+  pointer-events: auto;
+  /* important */
+  cursor: pointer;
+  transition: transform 0.15s;
+  z-index: 10;
+  border: 2px solid var(--bg);
+}
+
+.seek-handle::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.time {
+  font-size: 0.75rem;
+  color: var(--primary);
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* repeat one badge */
+.repeat {
+  position: relative;
+}
+
+.repeat-one {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 10px;
+  color: var(--primary);
+  display: none;
+  font-weight: bold;
+}
