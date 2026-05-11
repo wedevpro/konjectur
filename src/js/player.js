@@ -5,23 +5,23 @@ const tracks = [
       cover: "/audio/cover.png"
     },
     {
-      title: "Last in Line",
-      src: "/audio/last_in_line.mp3",
+      title: "Last in Line (instrumental)",
+      src: "/audio/last_in_line.wav",
       cover: "/audio/cover.png"
     },
     {
-      title: "Rise",
-      src: "/audio/rise.mp3",
+      title: "Rise (instrumental)",
+      src: "/audio/rise.wav",
       cover: "/audio/cover.png"
     },
     {
-      title: "Riot",
-      src: "/audio/riot.mp3",
+      title: "Riot (instrumental)",
+      src: "/audio/riot.wav",
       cover: "/audio/cover.png"
     },
     {
-      title: "See you up there",
-      src: "/audio/see_you_up_there.mp3",
+      title: "See you up there (instrumental)",
+      src: "/audio/see_you_up_there.wav",
       cover: "/audio/cover.png"
     }
   ];
@@ -85,16 +85,15 @@ const tracks = [
     <path d="M21 4 C24 10,24 14,21 20" stroke="currentColor" stroke-width="2" fill="none"/>
   </svg>`;
   
-  function loadTrack(i){
-      audio.pause();
+  function loadTrack(i, autoplay = true){
     audio.src = tracks[i].src;
     document.getElementById('track-title').innerText = tracks[i].title;
     document.getElementById('cover').src = tracks[i].cover;
     playedTracks[i] = true;
+    togglePlay(autoplay);
   }
   
   function togglePlay(mustPlay = null){
-    debugger;
     const btn = document.getElementById('play-btn');
     let shouldPlay = mustPlay === null ? audio.paused : mustPlay;
 
@@ -122,13 +121,11 @@ const tracks = [
     }
   
     loadTrack(current);
-    togglePlay(true);
   }
   
   function prevTrack(){
     current = (current-1+tracks.length)%tracks.length;
     loadTrack(current);
-    togglePlay(true);
   }
   
   function setVolume(v){
@@ -221,8 +218,6 @@ const tracks = [
       }
   });
   
-  loadTrack(current);
-  
   function adjustHero() {
     const hero = document.getElementById('hero');
     const player = document.getElementById('player');
@@ -242,13 +237,7 @@ const tracks = [
   playerObserver.observe(document.getElementById('player'));
   
   function updateWaveState(){
-    const progress = document.getElementById('progress');
-  
-    if(audio.paused){
-      progress.style.opacity = 0.6;
-    } else {
-      progress.style.opacity = 1;
-    }
+    document.getElementById('progress').classList.toggle('playing', !audio.paused);
   }
   
   audio.addEventListener('play', updateWaveState);
@@ -359,7 +348,7 @@ function toggleShuffle(){
       return;
     }
   
-    audio.currentTime = 0;
+    playedTracks.fill(false);
     togglePlay(false);
   });
 
@@ -414,3 +403,5 @@ function fadeOut(audio){
 
   }, intervalTime);
 }
+
+loadTrack(current, false);
