@@ -4,6 +4,7 @@
   --secondary-particle: #00eb6f;
   --text: #ffffff;
   --bg: #03040a;
+  --player-height: 80px;
 }
 
 body {
@@ -15,8 +16,8 @@ body {
   padding-bottom: var(--player-height);
 }
 
-:root {
-  --player-height: 80px;
+h1 {
+  margin-bottom: 40px;
 }
 
 /* FULLSCREEN MENU */
@@ -201,7 +202,7 @@ canvas#bg {
   position: relative;
   width: 100%;
   max-width: min(900px, 90vw);
-  margin: 40px auto;
+  margin: 20px auto;
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }

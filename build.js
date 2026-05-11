@@ -101,5 +101,8 @@ function generateHash(content) {
   const robotsTxt = `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`;
   await fs.outputFile(path.join(distDir, 'robots.txt'), robotsTxt);
 
+  // --- HTACCESS ---
+  await fs.rename(path.join(distDir, '.htaccess.prod'), path.join(distDir, '.htaccess'));
+
   console.log('Build terminé avec succès !');
 })();
