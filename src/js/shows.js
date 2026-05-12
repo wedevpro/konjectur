@@ -3,12 +3,7 @@ const shows = [
         date: "2026-05-08T21:00",
         place: "Hirson (02) - L'Île Verte",
         link: "https://www.facebook.com/events/1499235331693953",
-        images: ["assets/shows/2026-05-08_hirson/1.jpg", "assets/shows/2026-05-08_hirson/2.jpg", "assets/shows/2026-05-08_hirson/3.png", "assets/shows/2026-05-08_hirson/4.jpg", "assets/shows/2026-05-08_hirson/5.jpg", "assets/shows/2026-05-08_hirson/6.jpg", "assets/shows/2026-05-08_hirson/7.jpg", "assets/shows/2026-05-08_hirson/8.jpg", "assets/shows/2026-05-08_hirson/9.jpg", "assets/shows/2026-05-08_hirson/10.jpg", "assets/shows/2026-05-08_hirson/11.jpg", "assets/shows/2026-05-08_hirson/12.jpg", "assets/shows/2026-05-08_hirson/13.jpg"]
-    },
-    {
-        date: "2030-01-10T20:30",
-        place: "Saint-Denis - Stade de France",
-        link: "https://www.facebook.com/events/1499235331693953"
+        images: ["assets/shows/2026-05-08_hirson/1.jpg", "assets/shows/2026-05-08_hirson/2.jpg", "assets/shows/2026-05-08_hirson/3.jpg", "assets/shows/2026-05-08_hirson/4.jpg", "assets/shows/2026-05-08_hirson/5.jpg", "assets/shows/2026-05-08_hirson/6.jpg", "assets/shows/2026-05-08_hirson/7.jpg", "assets/shows/2026-05-08_hirson/8.jpg", "assets/shows/2026-05-08_hirson/9.jpg", "assets/shows/2026-05-08_hirson/10.jpg", "assets/shows/2026-05-08_hirson/11.jpg", "assets/shows/2026-05-08_hirson/12.png"]
     }
 ];
 shows.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -49,7 +44,7 @@ function renderShows() {
      <div class="show-gallery" id="show-gallery-${showIndex}">
 
         ${show?.images?.map((img, imgIndex) => `
-            <img src="${img}" loading="lazy" onclick="imgClicked(${showIndex}, ${imgIndex}, this.src)" />
+            <img src="${img}" loading="lazy" onclick="imgClicked(${showIndex}, ${imgIndex}, this.src)" alt="Show Image" />
         `).join('')}
 
     </div>

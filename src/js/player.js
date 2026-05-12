@@ -2,27 +2,7 @@ const tracks = [
   {
     title: "Dance in the Fire",
     src: "/audio/dance_in_fire.wav",
-    cover: "/audio/cover.png"
-  },
-  {
-    title: "Last in Line (instrumental)",
-    src: "/audio/last_in_line.wav",
-    cover: "/audio/cover.png"
-  },
-  {
-    title: "Rise (instrumental)",
-    src: "/audio/rise.wav",
-    cover: "/audio/cover.png"
-  },
-  {
-    title: "Riot (instrumental)",
-    src: "/audio/riot.wav",
-    cover: "/audio/cover.png"
-  },
-  {
-    title: "See you up there (instrumental)",
-    src: "/audio/see_you_up_there.wav",
-    cover: "/audio/cover.png"
+    cover: "/audio/cover.webp"
   }
 ];
 

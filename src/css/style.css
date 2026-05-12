@@ -15,6 +15,12 @@
   --z-lightbox: 10000;
 }
 
+@font-face {
+    font-family: 'Orbitron';
+    font-display: swap;
+    src: local('Orbitron'), url(https://fonts.gstatic.com/s/orbitron/v14/2pW35x09d072OZaZ0c38D6C189174695.woff2) format('woff2');
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -28,7 +34,7 @@ body.lightbox-open {
   overflow: hidden;
 }
 
-h1 {
+h2 {
   margin-bottom: 40px;
 }
 

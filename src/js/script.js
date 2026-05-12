@@ -17,6 +17,7 @@ let i18nData = new Array();
 function setLang(lang) {
   localStorage.setItem('lang', lang);
   currentLang = lang;
+  document.documentElement.lang = currentLang;
   loadLang();
 }
 
@@ -150,7 +151,7 @@ window.addEventListener('resize', () => {
 
   lastWidth = window.innerWidth;
   lastHeight = window.innerHeight;
-  
+
   resetAnimationTime();
 
   clearTimeout(resizeTimeout);
