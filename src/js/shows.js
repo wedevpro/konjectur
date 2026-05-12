@@ -8,8 +8,7 @@ const shows = [
     {
         date: "2030-01-10T20:30",
         place: "Saint-Denis - Stade de France",
-        link: "https://www.facebook.com/events/1499235331693953",
-        images: ["assets/shows/2026-05-08.jpg"]
+        link: "https://www.facebook.com/events/1499235331693953"
     }
 ];
 shows.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -20,7 +19,7 @@ function renderShows() {
 
     const now = new Date();
 
-    shows.forEach((show, index) => {
+    shows.forEach((show, showIndex) => {
         const showDate = new Date(show.date);
         const isPast = showDate < now;
 
@@ -39,21 +38,21 @@ function renderShows() {
           </a>
             ${show.images?.length ? `
             <button class="btn-glow photos-btn"
-                    data-index="${index}"
+                    data-index="${showIndex}"
                     data-i18n="shows_photos"
-                    onclick="toggleGallery(${index})">
+                    onclick="toggleGallery(${showIndex})">
             </button>
             ` : ''}
         </div>
       </div>
 
-     <div class="show-gallery" id="show-gallery-${index}">
+     <div class="show-gallery" id="show-gallery-${showIndex}">
 
-  ${show.images.map(img => `
-    <img src="${img}" loading="lazy" onclick="openLightbox(this.src)" />
-  `).join('')}
+        ${show?.images?.map((img, imgIndex) => `
+            <img src="${img}" loading="lazy" onclick="imgClicked(${showIndex}, ${imgIndex}, this.src)" />
+        `).join('')}
 
-</div>
+    </div>
     `;
 
         container.appendChild(el);
@@ -67,48 +66,131 @@ function formatShowDate(date) {
     });
 }
 
-function toggleGallery(i){
+function toggleGallery(i) {
 
-  const gallery =
-    document.getElementById(`show-gallery-${i}`);
+    const gallery =
+        document.getElementById(`show-gallery-${i}`);
 
-  const btn =
-    document.querySelector(
-      `.photos-btn[data-index="${i}"]`
-    );
+    const btn =
+        document.querySelector(
+            `.photos-btn[data-index="${i}"]`
+        );
 
-  const isVisible =
-    gallery.style.display === 'grid';
+    const isVisible =
+        gallery.style.display === 'grid';
 
-  gallery.style.display =
-    isVisible ? 'none' : 'grid';
+    gallery.style.display =
+        isVisible ? 'none' : 'grid';
 
-  btn.classList.toggle('active', !isVisible);
+    btn.classList.toggle('active', !isVisible);
 
-  btn.blur();
+    btn.blur();
+}
+
+function imgClicked(showIndex, imgIndex, src) {
+
+    currentGallery = showIndex >= 0 ? shows[showIndex].images : [];
+    currentIndex = imgIndex;
+    openLightbox(src);
+
 }
 
 const lightbox =
-  document.getElementById('lightbox');
+    document.getElementById('lightbox');
 
 const lightboxImg =
-  document.getElementById('lightbox-img');
+    document.getElementById('lightbox-img');
 
-function openLightbox(src){
+function openLightbox(src) {
 
-console.log('opening lightbox with src:', src);
-  lightboxImg.src = src;
+    lightboxImg.src = src;
 
-  lightbox.classList.add('open');
-  document.body.classList.add('lightbox-open');
+    lightbox.classList.add('open');
+    document.body.classList.add('lightbox-open');
 }
 
-lightbox.addEventListener('click', () => {
+function nextImage(){
 
-  lightbox.classList.remove('open');
-  document.body.classList.remove('lightbox-open');
+  currentIndex =
+    (currentIndex + 1) % currentGallery.length;
+
+  lightboxImg.src =
+    currentGallery[currentIndex];
+
+}
+
+function prevImage(){
+
+  currentIndex =
+    (currentIndex - 1 + currentGallery.length)
+    % currentGallery.length;
+
+  lightboxImg.src =
+    currentGallery[currentIndex];
+
+}
+
+function closeLightbox() {
+
+    lightbox.classList.remove('open');
+    document.body.classList.remove('lightbox-open');
+};
+
+let currentGallery = [];
+let currentIndex = 0;
+
+document.addEventListener('keydown', e => {
+
+  if(!lightbox.classList.contains('open')){
+    return;
+  }
+
+  if(e.key === 'ArrowRight'){
+    nextImage();
+  }
+
+  if(e.key === 'ArrowLeft'){
+    prevImage();
+  }
+
+  if(e.key === 'Escape'){
+    closeLightbox();
+  }
+
+});
+
+lightbox.addEventListener('click', e => {
+
+  if(e.target === lightbox){
+    closeLightbox();
+  }
+
+});
+
+let startX = 0;
+
+lightbox.addEventListener('touchstart', e => {
+
+  startX = e.touches[0].clientX;
+
+});
+
+lightbox.addEventListener('touchend', e => {
+
+  const endX =
+    e.changedTouches[0].clientX;
+
+  const delta = endX - startX;
+
+  if(delta > 50){
+    prevImage();
+  }
+
+  if(delta < -50){
+    nextImage();
+  }
+
 });
 
 renderShows();
-
 loadLang();

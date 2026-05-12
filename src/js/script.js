@@ -99,14 +99,26 @@ function updateParticles() {
   );
 
   createParticles(count);
-  animate();
+  animate(performance.now());
 }
 
-function animate() {
+let lastTime = performance.now();
+
+function animate(now) {
+
+  let delta = (now - lastTime) / 16.666;
+  lastTime = now;
+
+  if(delta > 5){
+    delta = 1;
+  }
+
+  delta = Math.min(delta, 2);
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particles.forEach(p => {
-    p.x += p.vx;
-    p.y += p.vy;
+    p.x += p.vx * delta;
+    p.y += p.vy * delta;
 
     if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
     if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
@@ -115,12 +127,31 @@ function animate() {
     ctx.fillStyle = p.color;
     ctx.fill();
   });
-  requestAnimationFrame(animate);
+  requestAnimationFrame(() => animate(performance.now()));
 }
+
 updateParticles();
 
 let resizeTimeout;
+let lastWidth = window.innerWidth;
+let lastHeight = window.innerHeight;
 window.addEventListener('resize', () => {
+
+  const widthChanged =
+    window.innerWidth !== lastWidth;
+
+  const heightDiff =
+    Math.abs(window.innerHeight - lastHeight);
+
+  // ignore petits changements mobiles
+  if(!widthChanged && heightDiff < 150){
+    return;
+  }
+
+  lastWidth = window.innerWidth;
+  lastHeight = window.innerHeight;
+  
+  resetAnimationTime();
 
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
@@ -201,5 +232,25 @@ document.querySelectorAll('.member-img').forEach(el => {
   el.addEventListener('contextmenu', e => {
     e.preventDefault();
   });
+
+});
+
+function resetAnimationTime(){
+  lastTime = performance.now();
+}
+
+let scrollTimeout;
+
+window.addEventListener('scroll', () => {
+
+  resetAnimationTime();
+
+  clearTimeout(scrollTimeout);
+
+  scrollTimeout = setTimeout(() => {
+
+    resetAnimationTime();
+
+  }, 100);
 
 });

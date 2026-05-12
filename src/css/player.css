@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding: 10px 20px;
   border-top: 1px solid var(--primary);
-  z-index: 9999;
+  z-index: var(--z-player);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;

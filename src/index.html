@@ -104,7 +104,8 @@
             </div>
           </div>
           <h3>Laura</h3>
-          <p>Chant</p>
+          <p class="lang-fr">Chant</p>
+          <p class="lang-en">Vocals</p>
         </div>
         <div class="member">
           <div class="member-img">
@@ -125,7 +126,8 @@
             </div>
           </div>
           <h3>Nicolas</h3>
-          <p>Guitare</p>
+          <p class="lang-fr">Guitare</p>
+          <p class="lang-en">Guitar</p>
         </div>
         <div class="member">
           <div class="member-img">
@@ -147,7 +149,8 @@
             </div>
           </div>
           <h3>Paul</h3>
-          <p>Basse / Chant</p>
+          <p class="lang-fr">Basse / Chant</p>
+          <p class="lang-en">Bass / Vocals</p>
         </div>
         <div class="member">
           <div class="member-img">
@@ -169,7 +172,8 @@
             </div>
           </div>
           <h3>Antoine</h3>
-          <p>Batterie</p>
+          <p class="lang-fr">Batterie</p>
+          <p class="lang-en">Drums</p>
         </div>
 
       </div>
@@ -342,7 +346,7 @@
 
             <div class="lang-fr">
               <p>
-                Aucue ndonnée personnelle n'est collectée sans votre consentement.
+                Aucune donnée personnelle n'est collectée sans votre consentement.
               </p>
             </div>
 
@@ -484,9 +488,21 @@
     <audio id="audio"></audio>
   </div>
   <div id="lightbox">
+    <button id="lightbox-prev" onclick="prevImage()">‹</button>
 
     <img id="lightbox-img">
 
+    <button id="lightbox-next" onclick="nextImage()">›</button>
+    <button id="lightbox-close" onclick="closeLightbox()">
+
+      <svg viewBox="0 0 24 24">
+
+        <path d="M6 6 L18 18" />
+        <path d="M18 6 L6 18" />
+
+      </svg>
+
+    </button>
   </div>
   <script lang="javascript" src="/js/script.js"></script>
   <script lang="javascript" src="/js/player.js"></script>
