@@ -170,6 +170,37 @@ function resizeCanvas() {
 }
 resizeCanvas();
 
+document
+  .querySelectorAll('.youtube-lite')
+  .forEach(el => {
+
+    el.addEventListener('click', () => {
+
+      const videoId =
+        el.dataset.video;
+
+      el.innerHTML = `
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1"
+
+          title="YouTube video"
+
+          allow="
+            autoplay;
+            encrypted-media;
+            picture-in-picture
+          "
+
+          allowfullscreen
+
+          frameborder="0"
+        ></iframe>
+      `;
+
+    });
+
+});
+
 // SCROLL ANIMATION
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
