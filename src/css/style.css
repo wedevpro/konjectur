@@ -28,6 +28,22 @@ body.lightbox-open {
   overflow: hidden;
 }
 
+.site-title {
+
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.site-title img {
+
+  width: 100%;
+  max-width: 500px;
+
+}
+
 h2 {
   margin-bottom: 40px;
 }
