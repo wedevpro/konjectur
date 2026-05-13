@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Konjectur — Maintenance</title>
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+
+    :root {
+      --primary: #048b9a;
+      --bg: #05070d;
+      --text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at center, rgba(4, 139, 154, 0.12), transparent 55%),
+        var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        Orbitron,
+        Arial,
+        sans-serif;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+
+      text-align: center;
+    }
+
+    .maintenance {
+      width: min(90%, 700px);
+      padding: 40px 20px;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      width: 220px;
+      margin: 0 auto 40px;
+    }
+
+    .logo-halo {
+      position: absolute;
+      inset: 0;
+
+      background: var(--primary);
+
+      filter: blur(50px);
+
+      opacity: 0.35;
+
+      border-radius: 50%;
+
+      transform: scale(0.9);
+
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .logo {
+      position: relative;
+      width: 100%;
+      display: block;
+    }
+
+    h1 {
+      margin: 0 0 25px;
+
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+
+      letter-spacing: 0.08em;
+
+      color: var(--primary);
+
+      text-shadow: 0 0 12px rgba(4, 139, 154, 0.5);
+    }
+
+    .message {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      line-height: 1.7;
+
+      opacity: 0.92;
+    }
+
+    .message strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(0.9);
+        opacity: 0.25;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 0.45;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .logo-wrapper {
+        width: 160px;
+        margin-bottom: 30px;
+      }
+
+      .maintenance {
+        padding: 30px 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <main class="maintenance">
+
+    <div class="logo-wrapper">
+      <div class="logo-halo"></div>
+
+      <img
+        src="assets/logo.webp"
+        alt="Konjectur"
+        class="logo"
+      >
+    </div>
+
+    <h1>MAINTENANCE</h1>
+
+    <div class="message">
+
+      <div>
+        <strong>FR</strong><br>
+        Le site est actuellement en maintenance.<br>
+        Nous revenons très bientôt.
+      </div>
+
+      <div>
+        <strong>EN</strong><br>
+        The website is currently under maintenance.<br>
+        We will be back very soon.
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
