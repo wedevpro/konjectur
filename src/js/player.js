@@ -108,38 +108,6 @@ function prevTrack() {
   loadTrack(current);
 }
 
-function setVolume(v) {
-  audio.volume = v;
-
-  const btn = document.getElementById('mute-btn');
-
-  if (v == 0) {
-    btn.innerHTML = volumeOffIcon;
-    isMuted = true;
-  } else {
-    btn.innerHTML = volumeOnIcon;
-    isMuted = false;
-  }
-
-  updateVolumeIcon(v);
-
-  document.querySelector('input[type=\"range\"]').style.setProperty('--progress', (v * 100) + '%');
-}
-
-function updateVolumeIcon(v) {
-  const btn = document.getElementById('mute-btn');
-
-  if (v == 0) {
-    btn.innerHTML = volumeMuteIcon;
-  } else if (v < 0.33) {
-    btn.innerHTML = volumeLowIcon;
-  } else if (v < 0.66) {
-    btn.innerHTML = volumeMediumIcon;
-  } else {
-    btn.innerHTML = volumeHighIcon;
-  }
-}
-
 function seek(e) {
   const container = e.currentTarget;
   const rect = container.getBoundingClientRect();
@@ -155,28 +123,6 @@ function seek(e) {
   document.getElementById('progress').style.width = (percent * 100).toFixed(2) + '%';
 }
 
-let isMuted = false;
-let lastVolume = 1;
-
-function toggleMute() {
-  const btn = document.getElementById('mute-btn');
-
-  if (isMuted) {
-    audio.volume = lastVolume;
-    isMuted = false;
-    btn.innerHTML = volumeOnIcon;
-  } else {
-    lastVolume = audio.volume;
-    audio.volume = 0;
-    isMuted = true;
-    btn.innerHTML = volumeOffIcon;
-  }
-
-  updateVolumeIcon(audio.volume);
-
-  // synchro avec le slider
-  document.querySelector('input[type=\"range\"]').value = audio.volume;
-}
 let isFadingOut = false;
 audio.addEventListener('timeupdate', () => {
   const percent = audio.duration

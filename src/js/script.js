@@ -48,10 +48,6 @@ function loadLang() {
   }
 }
 
-function isMobile() {
-  return window.innerWidth < 768;
-}
-
 function cssVar(name) {
   return getComputedStyle(document.documentElement)
     .getPropertyValue(name)
@@ -76,7 +72,7 @@ function createParticles(count) {
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 1,
       vy: (Math.random() - 0.5) * 1,
-      size: 2,//isMobile() ? 3 : 2,
+      size: 2,
       color: i % 2 === 0
         ? cssVar('--primary-particle')
         : cssVar('--secondary-particle')
@@ -200,16 +196,6 @@ document
     });
 
 });
-
-// SCROLL ANIMATION
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-});
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 document.querySelectorAll('.accordion-header').forEach(btn => {
   btn.addEventListener('click', () => {

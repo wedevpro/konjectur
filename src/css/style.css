@@ -368,18 +368,6 @@ canvas#bg {
   align-items: center;
 }
 
-.show-img {
-  display: none;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.show-img img {
-  width: 100%;
-  display: block;
-  border: 1px solid var(--primary);
-}
-
 .show-gallery {
 
   display: none;
@@ -408,27 +396,10 @@ canvas#bg {
   transition: 0.3s;
 }
 
-/* bouton icône */
-.toggle-img {
-  cursor: pointer;
-}
-
 .btn-glow:focus,
 .btn-glow:active {
   outline: none;
   box-shadow: none;
-}
-
-.legal-content {
-  max-width: 800px;
-  margin: auto;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.legal-content h2 {
-  margin-top: 25px;
-  color: var(--primary);
 }
 
 .accordion-item {
