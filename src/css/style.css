@@ -485,6 +485,16 @@ canvas#bg {
   flex-wrap: wrap;
 }
 
+#contact svg,
+#stream svg {
+
+  width: 22px;
+  height: 22px;
+
+  fill: var(--primary);
+
+}
+
 .band-members {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
