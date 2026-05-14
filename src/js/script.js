@@ -106,7 +106,7 @@ function animate(now) {
   let delta = (now - lastTime) / 16.666;
   lastTime = now;
 
-  if(delta > 5){
+  if (delta > 5) {
     delta = 1;
   }
 
@@ -141,7 +141,7 @@ window.addEventListener('resize', () => {
     Math.abs(window.innerHeight - lastHeight);
 
   // ignore petits changements mobiles
-  if(!widthChanged && heightDiff < 150){
+  if (!widthChanged && heightDiff < 150) {
     return;
   }
 
@@ -195,7 +195,7 @@ document
 
     });
 
-});
+  });
 
 document.querySelectorAll('.accordion-header').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -253,7 +253,7 @@ document.querySelectorAll('.member-img').forEach(el => {
 
 });
 
-function resetAnimationTime(){
+function resetAnimationTime() {
   lastTime = performance.now();
 }
 
@@ -270,5 +270,64 @@ window.addEventListener('scroll', () => {
     resetAnimationTime();
 
   }, 100);
+
+});
+
+document.querySelectorAll('[data-route]')
+  .forEach(link => {
+
+    link.addEventListener('click', e => {
+
+      e.preventDefault();
+
+      const route = link.dataset.route;
+
+      navigate(route);
+
+    });
+
+  });
+
+function navigate(route) {
+
+  history.pushState({}, '', '/' + route);
+
+  const section = document.getElementById(route === '' ? 'hero' : route);
+
+  if (section) {
+
+      window.scrollTo(
+        0,
+        section.offsetTop
+      );
+  }
+
+}
+
+window.addEventListener('load', () => {
+
+  const route =
+    window.location.pathname
+      .replace('/', '');
+
+  if (route) {
+
+    const section =
+      document.getElementById(route);
+
+    if (section) {
+
+      setTimeout(() => {
+
+        window.scrollTo(
+          0,
+          section.offsetTop
+        );
+
+      }, 100);
+
+    }
+
+  }
 
 });

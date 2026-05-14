@@ -74,6 +74,14 @@ function generateHash(content) {
   // --- Traitement HTML ---
   const htmlFiles = glob.sync(`${srcDir}/**/*.html`);
   const sitemapEntries = [];
+  const spaRoutes = [
+    'about',
+    'videos',
+    'stream',
+    'shows',
+    'contact',
+    'legal'
+  ];
 
   for (const file of htmlFiles) {
     let content = await fs.readFile(file, 'utf8');
@@ -88,12 +96,32 @@ function generateHash(content) {
     const relPath = path.relative(srcDir, file);
     await fs.outputFile(path.join(distDir, relPath), minified);
 
-    sitemapEntries.push(`${siteUrl}/${relPath.replace(/\\/g, '/')}`);
+    let urlPath = relPath.replace(/\\/g, '/');
+
+    if(urlPath === 'index.html') {
+      urlPath = '';
+    }
+
+    urlPath = urlPath.replace(/index\.html$/, '');
+    urlPath = urlPath.replace(/\.html$/, '');
+
+    sitemapEntries.push(
+      `${siteUrl}/${urlPath}`
+    );
   }
+
+  for(const route of spaRoutes) {
+    sitemapEntries.push(route ? `${siteUrl}/${route}` : siteUrl);
+  }
+
+  const uniqueEntries = [...new Set(sitemapEntries)];
 
   // --- Sitemap ---
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    sitemapEntries.map(url => `  <url>\n    <loc>${url}</loc>\n  </url>`).join('\n') +
+    uniqueEntries.map(url => `  <url>
+    <loc>${url}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>${url === siteUrl+'/' ? '1.0' : '0.8'}</priority>\n  </url>`).join('\n') +
     `\n</urlset>`;
   await fs.outputFile(path.join(distDir, 'sitemap.xml'), sitemap);
 
