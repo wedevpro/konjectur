@@ -4,6 +4,11 @@ const shows = [
         place: "Hirson (02) - L'Île Verte",
         link: "https://www.facebook.com/events/1499235331693953",
         images: ["assets/shows/2026-05-08_hirson/1.jpg", "assets/shows/2026-05-08_hirson/2.jpg", "assets/shows/2026-05-08_hirson/3.jpg", "assets/shows/2026-05-08_hirson/4.jpg", "assets/shows/2026-05-08_hirson/5.jpg", "assets/shows/2026-05-08_hirson/6.jpg", "assets/shows/2026-05-08_hirson/7.jpg", "assets/shows/2026-05-08_hirson/8.jpg", "assets/shows/2026-05-08_hirson/9.jpg", "assets/shows/2026-05-08_hirson/10.jpg", "assets/shows/2026-05-08_hirson/11.jpg", "assets/shows/2026-05-08_hirson/12.png"]
+    },
+    {
+        date: "2026-10-02T20:00",
+        place: "Reims (51) - Beer Garden",
+        link: "https://www.facebook.com/events/1573204993780857",
     }
 ];
 shows.sort((a, b) => new Date(a.date) - new Date(b.date));

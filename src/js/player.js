@@ -3,6 +3,11 @@ const tracks = [
     title: "Dance in the Fire",
     src: "/audio/dance_in_fire.wav",
     cover: "/audio/cover.webp"
+  },
+  {
+    title: "Last in Line",
+    src: "/audio/last_in_line.wav",
+    cover: "/audio/cover.webp"
   }
 ];
 
