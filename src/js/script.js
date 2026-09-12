@@ -172,6 +172,12 @@ document
 
     el.addEventListener('click', () => {
 
+      // Une fois le lecteur chargé, les interactions doivent rester gérées
+      // par YouTube (notamment le tap pause sur mobile).
+      if (el.querySelector('iframe')) {
+        return;
+      }
+
       const videoId =
         el.dataset.video;
 
