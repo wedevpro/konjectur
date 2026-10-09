@@ -1,0 +1,252 @@
+.epk-section {
+
+  padding: 120px 0;
+
+}
+
+.epk-subtitle {
+
+  opacity: 0.7;
+
+  margin-top: 10px;
+
+}
+
+.epk-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    1.2fr 1fr;
+
+  gap: 50px;
+
+  margin-top: 60px;
+
+}
+
+.epk-content {
+
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+}
+
+.epk-block h3 {
+
+  color: var(--primary);
+
+  margin-bottom: 15px;
+
+  letter-spacing: 0.08em;
+
+}
+
+.epk-block p {
+
+  line-height: 1.8;
+
+  opacity: 0.9;
+
+}
+
+.epk-meta {
+
+  display: grid;
+
+  gap: 20px;
+
+}
+
+.epk-meta-item {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+.epk-meta-label {
+
+  font-size: 0.8rem;
+
+  opacity: 0.5;
+
+  letter-spacing: 0.12em;
+
+}
+
+.epk-meta-value {
+
+  font-size: 1rem;
+
+}
+
+.epk-downloads {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+.epk-card {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  text-decoration: none;
+
+  color: white;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+
+    text-align: left;
+}
+
+.epk-card:hover {
+
+  transform: translateY(-2px);
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 20px rgba(29,224,173,0.15);
+
+}
+
+.epk-main-download {
+
+  border-color: var(--primary);
+
+}
+
+.epk-icon {
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.epk-icon svg {
+
+  width: 28px;
+  height: 28px;
+
+  fill: var(--primary);
+
+}
+
+.epk-card-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+.epk-card-content h4 {
+
+  margin: 0;
+
+  letter-spacing: 0.06em;
+
+}
+
+.epk-card-content span {
+
+  opacity: 0.6;
+
+  font-size: 0.9rem;
+
+}
+
+.epk-contact {
+
+  margin-top: 20px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+
+}
+
+.epk-contact h4 {
+
+  margin-bottom: 10px;
+
+  color: var(--primary);
+
+}
+
+.epk-contact a {
+
+  color: white;
+
+  text-decoration: none;
+
+  opacity: 0.85;
+
+}
+
+.epk-contact a:hover {
+
+  color: var(--primary);
+
+}
+
+@media (max-width: 900px) {
+
+  .epk-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .epk-section {
+
+    padding: 80px 0;
+
+  }
+
+  .epk-card {
+
+    padding: 18px;
+
+  }
+
+}

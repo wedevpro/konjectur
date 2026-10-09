@@ -6,9 +6,9 @@
   "nav_shows": "Shows",
   "nav_legal": "Legal mentions",
   "nav_contact": "Contact",
+  "nav_epk": "EPK / Press kit",
   "videos_title": "Videos",
   "about_title": "The band",
-  "about_text": "Konjectur is a rock band...",
   "stream_title": "Streaming",
   "shows_title": "Shows",
   "shows_event": "Event",
@@ -24,5 +24,16 @@
   "contact_name": "Name",
   "contact_email": "Email",
   "contact_message": "Message",
-  "contact_send": "Send"
+  "contact_send": "Send",
+  "epk_title": "EPK / Press kit",
+  "epk_subtitle": "Official media resources for venues, festivals and press.",
+  "epk_short_bio_title": "SHORT BIO",
+  "epk_short_bio": "Konjectur is a French heavy rock band blending hard rock energy, modern atmospheres and powerful live performances..",
+  "epk_long_bio_title": "FULL BIO",
+  "epk_long_bio": "Inspired by bands such as AC/DC, Muse and Metallica, Konjectur delivers an energetic live experience mixing powerful riffs, catchy melodies and immersive atmospheres.",
+  "epk_photos": "PRESS PHOTOS",
+  "epk_logos": "LOGOS",
+  "epk_tech": "TECH RIDER",
+  "epk_full": "DOWNLOAD FULL PRESS KIT",
+  "epk_contact_title": "PRESS / BOOKING"
 }

@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Konjectur — Groupe de Rock | Concerts, Streaming & Live</title>
+  <title>Konjectur — Groupe de Heavy Rock | Concerts, Streaming & Live</title>
   <meta name="description"
-    content="Konjectur est un groupe de rock français proposant des compositions originales, des concerts live et un univers énergique inspiré par AC/DC, Muse et Guns N' Roses. Parfois recherché sous le nom Konjecture ou Conjecture.">
+    content="Konjectur est un groupe de heavy rock français proposant des compositions originales, des concerts live et un univers énergique inspiré par AC/DC, Muse et Guns N' Roses. Parfois recherché sous le nom Konjecture ou Conjecture.">
   <link rel="canonical" href="https://www.konjectur.com/">
 
   <!-- OpenGraph -->
-  <meta property="og:title" content="Konjectur - Groupe de rock">
+  <meta property="og:title" content="Konjectur - Groupe de heavy rock">
   <meta property="og:image" content="/assets/logo.webp">
-  <meta property="og:description" content="Konjectur est un groupe de rock français proposant des compositions originales, des concerts live et un univers énergique inspiré par AC/DC, Muse et Guns N' Roses. Parfois recherché sous le nom Konjecture ou Conjecture."></meta>
+  <meta property="og:description" content="Konjectur est un groupe de heavy rock français proposant des compositions originales, des concerts live et un univers énergique inspiré par AC/DC, Muse et Guns N' Roses. Parfois recherché sous le nom Konjecture ou Conjecture."></meta>
 
   <!-- icons -->
   <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png" sizes="96x96" />
@@ -31,6 +31,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/player.css">
+  <link rel="stylesheet" href="/css/epk.css">
 
   <link rel="preload" fetchpriority="high" as="image" href="/assets/logo.webp" type="image/png">
 </head>
@@ -58,6 +59,7 @@
       <a href="/videos" data-route="videos" onclick="toggleMenu()" data-i18n="nav_videos"></a>
       <a href="/stream" data-route="stream" onclick="toggleMenu()" data-i18n="nav_stream"></a>
       <a href="/shows" data-route="shows" onclick="toggleMenu()" data-i18n="nav_shows"></a>
+      <a href="/epk" data-route="epk" onclick="toggleMenu()" data-i18n="nav_epk"></a>
       <a href="/contact" data-route="contact" onclick="toggleMenu()" data-i18n="nav_contact"></a>
       <a href="/legal" data-route="legal" onclick="toggleMenu()" data-i18n="nav_legal"></a>
     </div>
@@ -69,7 +71,7 @@
     <!-- HERO -->
     <section id="hero" class="hero">
       <h1 class="site-title">
-        <img src="/assets/logo.webp" class="logo" alt="Konjectur — Groupe de Rock">
+        <img src="/assets/logo.webp" class="logo" alt="Konjectur — Groupe de Heavy Rock">
       </h1>
     </section>
 
@@ -79,10 +81,10 @@
         <h2 data-i18n="about_title"></h2>
         <div class="lang-fr">
           <p>
-            Konjectur (parfois recherché sous le nom "Konjecture" ou "Conjecture") est un groupe de rock français formé en 2023. Composé
+            Konjectur (parfois recherché sous le nom "Konjecture" ou "Conjecture") est un groupe de heavy rock français formé en 2023. Composé
             de quatre membres passionnés, le groupe
             puise
-            son inspiration dans les grands classiques du rock tout en y ajoutant une touche moderne et personnelle.
+            son inspiration dans les grands classiques du heavy rock tout en y ajoutant une touche moderne et personnelle.
             Avec
             des riffs puissants, des mélodies accrocheuses et des paroles introspectives, Konjectur s'efforce de créer
             une
@@ -91,8 +93,8 @@
         </div>
         <div class="lang-en">
           <p>
-            Konjectur is a French rock band formed in 2023. Composed of four passionate members, the band draws its
-            inspiration from the great classics of rock while adding a modern and personal touch. With powerful riffs,
+            Konjectur is a French heavy rock band formed in 2023. Composed of four passionate members, the band draws its
+            inspiration from the great classics of hard rock while adding a modern and personal touch. With powerful riffs,
             catchy melodies, and introspective lyrics, Konjectur strives to create an authentic and captivating musical
             experience for its listeners.
           </p>
@@ -285,8 +287,190 @@
     <section id="shows" class="section">
       <div class="container text-center">
         <h2 data-i18n="shows_title">Concerts</h2>
-
         <div id="shows-list"></div>
+      </div>
+    </section>
+
+    <!-- EPK -->
+    <section id="epk" class="section epk-section text-center">
+      <div class="container text-center">
+        <div class="section-title">
+          <h2 data-i18n="epk_title">EPK / PRESS KIT</h2>
+          <p class="epk-subtitle"
+            data-i18n="epk_subtitle">
+            Official media resources for venues, festivals and press.
+          </p>
+        </div>
+        <div class="epk-grid">
+          <!-- LEFT -->
+          <div class="epk-content">
+            <div class="epk-block">
+              <h3 data-i18n="epk_short_bio_title">
+                SHORT BIO
+              </h3>
+              <p data-i18n="epk_short_bio">
+                Konjectur is a French heavy rock band blending
+                hard rock energy, modern atmospheres
+                and powerful live performances.
+              </p>
+            </div>
+            <div class="epk-block">
+              <h3 data-i18n="epk_long_bio_title">
+                FULL BIO
+              </h3>
+              <p data-i18n="epk_long_bio">
+                Inspired by bands such as AC/DC, Muse
+                and Metallica, Konjectur delivers an
+                energetic live experience mixing powerful
+                riffs, catchy melodies and immersive
+                atmospheres.
+              </p>
+            </div>
+            <div class="epk-meta">
+              <div class="epk-meta-item">
+                <span class="epk-meta-label">
+                  STYLE
+                </span>
+                <span class="epk-meta-value">
+                  Heavy Rock
+                </span>
+              </div>
+              <div class="epk-meta-item">
+                <span class="epk-meta-label">
+                  LIVE SET
+                </span>
+                <span class="epk-meta-value">
+                  90 min
+                </span>
+              </div>
+              <div class="epk-meta-item">
+                <span class="epk-meta-label">
+                  INFLUENCES
+                </span>
+                <span class="epk-meta-value">
+                  AC/DC · Muse · Metallica
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT -->
+          <div class="epk-downloads">
+            <a
+              href="/epk/konjectur-press-photos.zip"
+              class="epk-card"
+              download
+            >
+              <div class="epk-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 19V5a2 2 0 0 0-2-2H5a2
+                          2 0 0 0-2 2v14a2 2 0 0 0
+                          2 2h14a2 2 0 0 0 2-2ZM8.5
+                          11A2.5 2.5 0 1 1 11 8.5
+                          2.5 2.5 0 0 1 8.5 11Zm-3.5
+                          8 5-6 4 5 3-4 4 5Z"/>
+                </svg>
+              </div>
+              <div class="epk-card-content">
+                <h4 data-i18n="epk_photos">
+                  PRESS PHOTOS
+                </h4>
+                <span>
+                  ZIP · HD
+                </span>
+              </div>
+            </a>
+            <a
+              href="/epk/konjectur-logos.zip"
+              class="epk-card"
+              download
+            >
+              <div class="epk-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2 2 7l10 5 10-5-10-5Zm0
+                          7L2 4v13l10 5 10-5V4l-10 5Z"/>
+                </svg>
+              </div>
+              <div class="epk-card-content">
+                <h4 data-i18n="epk_logos">
+                  LOGOS
+                </h4>
+                <span>
+                  SVG · PNG
+                </span>
+              </div>
+            </a>
+            <a
+              href="/epk/konjectur-tech-rider.pdf"
+              class="epk-card"
+              download
+            >
+              <div class="epk-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 2h9l5 5v15a2 2 0 0 1-2
+                          2H6a2 2 0 0 1-2-2V4a2 2 0
+                          0 1 2-2Zm8 1.5V8h4.5"/>
+                </svg>
+              </div>
+              <div class="epk-card-content">
+                <h4 data-i18n="epk_tech">
+                  TECH RIDER
+                </h4>
+                <span>
+                  PDF
+                </span>
+              </div>
+            </a>
+            <a
+              href="/epk/konjectur-full-epk.zip"
+              class="epk-card epk-main-download"
+              download
+            >
+            <div class="epk-icon">
+              <svg viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+
+                <!-- Flèche -->
+                <path d="M12 3v12"
+                      fill="none"
+                      stroke="var(--primary)"
+                      stroke-width="2"
+                      stroke-linecap="round"/>
+
+                <path d="M7.5 11L12 15.5 16.5 11"
+                      fill="none"
+                      stroke="var(--primary)"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+
+                <!-- Barre de réception -->
+                <path d="M5 20h14"
+                      fill="none"
+                      stroke="var(--primary)"
+                      stroke-width="2"
+                      stroke-linecap="round"/>
+              </svg>
+            </div>
+              <div class="epk-card-content">
+                <h4 data-i18n="epk_full">
+                  DOWNLOAD FULL PRESS KIT
+                </h4>
+                <span>
+                  ZIP
+                </span>
+              </div>
+            </a>
+            <div class="epk-contact">
+              <h4 data-i18n="epk_contact_title">
+                PRESS / BOOKING
+              </h4>
+              <a href="mailto:contact@konjectur.com">
+                contact@konjectur.com
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -579,7 +763,7 @@
       "@type":"MusicGroup",
       "name":"Konjectur",
       "alternateName":"Konjecture",
-      "genre":"Rock",
+      "genre":"Heavy Rock",
       "url":"https://www.konjectur.com",
       "sameAs":[
         "https://www.facebook.com/profile.php?id=61582231696558",

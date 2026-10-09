@@ -6,9 +6,9 @@
   "nav_shows": "Concerts",
   "nav_legal": "Mentions légales",
   "nav_contact": "Nous contacter",
+  "nav_epk": "Dossier de presse",
   "videos_title": "Vidéos",
   "about_title": "Le groupe",
-  "about_text": "Konjectur est un groupe de rock...",
   "stream_title": "Streaming",
   "shows_title": "Concerts",
   "shows_event": "Infos",
@@ -24,5 +24,16 @@
   "contact_name": "Nom",
   "contact_email": "Email",
   "contact_message": "Message",
-  "contact_send": "Envoyer"
+  "contact_send": "Envoyer",
+  "epk_title": "Dossier de presse",
+  "epk_subtitle": "Ressources médiatiques officielles pour les lieux, festivals et la presse.",
+  "epk_short_bio_title": "BIOGRAPHIE COURTE",
+  "epk_short_bio": "Konjectur est un groupe de heavy rock français qui mélange l'énergie du hard rock, les atmosphères modernes et les performances live puissantes.",
+  "epk_long_bio_title": "BIOGRAPHIE COMPLÈTE",
+  "epk_long_bio": "Inspiré par des groupes comme AC/DC, Muse et Metallica, Konjectur offre une expérience live énergique en mélangeant des riffs puissants, des mélodies accrocheuses et des atmosphères immersives.",
+  "epk_photos": "PHOTOS DE PRESSE",
+  "epk_logos": "LOGOS",
+  "epk_tech": "TECH RIDER",
+  "epk_full": "TÉLÉCHARGER LE DOSSIER DE PRESSE COMPLET",
+  "epk_contact_title": "PRESSE / RÉSERVATION"
 }
